@@ -34,6 +34,7 @@ typedef WCHAR variant_char;
 
 static variant_char *ossl_getenv(const char *name)
 {
+#if 0
     /*
      * Since we pull only one environment variable, it's simpler to
      * to just ignore |name| and use equivalent wide-char L-literal.
@@ -43,6 +44,8 @@ static variant_char *ossl_getenv(const char *name)
     DWORD len = GetEnvironmentVariableW(L"OPENSSL_ia32cap", value, 48);
 
     return (len > 0 && len < 48) ? value : NULL;
+#endif
+    return NULL;
 }
 #  else
 typedef char variant_char;

@@ -16,6 +16,7 @@
 
 char *ossl_safe_getenv(const char *name)
 {
+#if 0
 #if defined(__GLIBC__) && defined(__GLIBC_PREREQ)
 # if __GLIBC_PREREQ(2, 17)
 #  define SECURE_GETENV
@@ -28,4 +29,6 @@ char *ossl_safe_getenv(const char *name)
         return NULL;
     return getenv(name);
 #endif
+#endif
+    return NULL;
 }
